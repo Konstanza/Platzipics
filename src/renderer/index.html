@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Platzipics</title>
+	<link rel="stylesheet" type="text/css" href="../assets/css/photon.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+	<<script src="lib/filterous2-2.0.0.min.js" type="text/javascript"></script>
+	<script src="main-window/frontend.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="overlay" class="hidden"></div>
+	<div class="window">
+	  <div class="window-content">
+	    <div class="pane-group">
+	      <div class="pane pane-sm sidebar">
+	      	<ul class="list-group">
+			  <li class="list-group-header">
+			    <input id="search-box" class="form-control" type="text" placeholder="Busca una imagen">
+			  </li>
+			  <!--<li class="list-group-item selected">
+			    <img class="media-object pull-left" src="../assets/img/1.jpg" height="32">
+			    <div class="media-body">
+			      <strong>1.jpg</strong>
+			      <p>1 MB</p>
+			    </div>
+			  </li>
+			  <li class="list-group-item">
+			    <img class="media-object pull-left" src="../assets/img/2.jpg" height="32">
+			    <div class="media-body">
+			      <strong>2.jpg</strong>
+			      <p>1 MB</p>
+			    </div>
+			  </li>
+			  <li class="list-group-item">
+			    <img class="media-object pull-left" src="../assets/img/3.jpg" height="32">
+			    <div class="media-body">
+			      <strong>3.jpg</strong>
+			      <p>1 MB</p>
+			    </div>
+			  </li>
+			  <li class="list-group-item">
+			    <img class="media-object pull-left" src="../assets/img/4.jpg" height="32">
+			    <div class="media-body">
+			      <strong>4.jpg</strong>
+			      <p>1 MB</p>
+			    </div>
+			  </li>
+			  <li class="list-group-item">
+			    <img class="media-object pull-left" src="../assets/img/5.jpg" height="32">
+			    <div class="media-body">
+			      <strong>5.jpg</strong>
+			      <p>1 MB</p>
+			    </div>
+			  </li>-->
+			</ul>
+	      </div>
+	      <div class="pane">
+	      	<div class="image-view full-height">
+	      		<header class="toolbar toolbar-header image-toolbar">
+	      			<div class="toolbar-actions">
+					    <div class="btn-group">
+					      <button id="open-directory" class="btn btn-default">
+					        <span class="icon icon-folder icon-text"></span>
+					        Abrir ubicación
+					      </button>
+					    </div>
+
+					    <div class="btn-group">
+					      <button id="open-preferences" class="btn btn-default">
+					        <span class="icon icon-cog"></span>
+					      </button>
+
+					      <button id="print-button" class="btn btn-default">
+					        <span class="icon icon-print"></span>
+					      </button>
+
+					      <button id="upload-button" class="btn btn-default">
+					        <span class="icon icon-upload-cloud"></span>
+					      </button>
+
+					      <button id="paste-button" class="btn btn-default">
+					        <span class="icon icon-clipboard"></span>
+					      </button>
+					    </div>
+
+					    <button id="save-button" class="btn btn-default pull-right">
+					        <span class="icon icon-download icon-text"></span>
+					        Guardar
+					    </button>
+
+					    <select class="pull-right" id="filters">
+					    	<option value="custom">personalizado</option>
+					   		<option value="normal" selected>normal</option>
+		                   	<option value="1977">1977</option>
+		                   	<option value="aden">aden</option>
+		                   	<option value="amaro">amaro</option>
+		                   	<option value="ashby">ashby</option>
+		                   	<option value="brannan">brannan</option>
+		                   	<option value="brooklyn">brooklyn</option>
+		                   	<option value="charmes">charmes</option>
+		                   	<option value="clarendon">clarendon</option>
+		                   	<option value="crema">crema</option>
+		                   	<option value="dogpatch">dogpatch</option>
+		                   	<option value="earlybird">earlybird</option>
+		                   	<option value="gingham">gingham</option>
+		                   	<option value="ginza">ginza</option>
+		                   	<option value="hefe">hefe</option>
+		                   	<option value="helena">helena</option>
+		                   	<option value="hudson">hudson</option>
+		                   	<option value="inkwell">inkwell</option>
+		                   	<option value="juno">juno</option>
+		                   	<option value="kelvin">kelvin</option>
+		                   	<option value="lark">lark</option>
+		                   	<option value="lofi">lofi</option>
+		                   	<option value="ludwig">ludwig</option>
+		                   	<option value="maven">maven</option>
+		                   	<option value="mayfair">mayfair</option>
+		                   	<option value="moon">moon</option>
+		                   	<option value="nashville">nashville</option>
+		                   	<option value="perpetua">perpetua</option>
+		                   	<option value="reyes">reyes</option>
+		                   	<option value="rise">rise</option>
+		                   	<option value="sierra">sierra</option>
+		                   	<option value="skyline">skyline</option>
+		                   	<option value="slumber">slumber</option>
+		                   	<option value="stinson">stinson</option>
+		                   	<option value="sutro">sutro</option>
+		                   	<option value="toaster">toaster</option>
+		                   	<option value="valencia">valencia</option>
+		                   	<option value="vesper">vesper</option>
+		                   	<option value="walden">walden</option>
+		                   	<option value="willow">willow</option>
+		                   	<option value="xpro2">xpro2</option>
+					    </select>
+					    <label class="pull-right filter-label">Filtros: </label>
+			        </div>
+	      		</header>
+	      		<div class="image-container">
+	      			<!--<img id="image-displayed" src="../assets/img/1.jpg">-->
+	      			<img id="image-displayed" src="">
+	      		</div>
+	      	</div>
+	      </div>
+	      <div id="tools" class="pane pane-sm sidebar tools-pane hidden">
+	      	  <header class="toolbar toolbar-header filter-toolbar pane-sm">
+	      			<div class="toolbar-actions">
+	      				<button id="restore-filter-button" class="btn btn-default">
+	      					<span class="icon icon-ccw icon-text"></span>
+					        Restaurar
+					    </button>
+
+	      				<button id="save-filter-button" class="btn btn-default pull-right">
+					        <span class="icon icon-download icon-text"></span>
+					        Guardar filtro
+					    </button>
+	      			</div>
+	      	  </header>	
+		      <div class="tools-container">
+		      	<div id="filter-options" class="form-group">
+		      		<div class="option">
+		      			<label>Sepia</label>
+			      		<div class="control">
+			      			<input class="form-control" name="sepia" type="range" min="0" max="1" value="0" step="0.01" class="slider" >
+			      			<input class="form-control" name="sepia" type="number" min="0" max="1" value="0" step="0.01" >
+			      		</div>
+			      	</div>
+			      	<div class="option">
+			      		<label>Brillo</label>
+			      		<div class="control">
+			      			<input class="form-control" name="brightness" type="range" min="-1" max="1" value="0" step="0.01" class="slider">
+			      			<input class="form-control" name="brightness" type="number" min="-1" step="0.01"  max="1" value="0">
+			      		</div>
+			      	</div>
+			      	<div class="option">
+			      		<label>Contraste</label>
+			      		<div class="control">
+			      			<input class="form-control" name="contrast" type="range" min="-1" max="1" value="0" step="0.01" class="slider">
+			      			<input class="form-control" name="contrast" type="number" min="-1" step="0.01"  max="1" value="0">
+			      		</div>
+			      	</div>
+			      	<div class="option">
+			      		<label>Saturación</label>
+			      		<div class="control">
+			      			<input class="form-control" name="saturation" type="range" min="-1" max="1" value="0" step="0.01" class="slider">
+			      			<input class="form-control" name="saturation" type="number" min="-1" step="0.01"  max="1" value="0">
+			      		</div>
+			      	</div>
+			      	<div class="option">
+			      		<label id="colorFilter-label">Filtro de color<span id="colorFilter-icon" class="icon icon-down-open icon-text pull-right"></span></label>
+			      		<span id="colorFilter-controls" class="hidden">
+				      		<div class="control">
+				      			<label>R</label>
+				      			<input class="form-control" name="colorFilter-r" type="range" min="0" max="255" step="1" value="0" class="slider">
+				      			<input class="form-control" name="colorFilter-r" type="number" min="0" max="255" step="1" value="0">
+				      		</div>
+				      		<div class="control">
+				      			<label>G</label>
+				      			<input class="form-control" name="colorFilter-g" type="range" min="0" max="255" step="1" value="0" class="slider">
+				      			<input class="form-control" name="colorFilter-g" type="number" min="0" max="255" step="1" value="0">
+				      		</div>
+				      		<div class="control">
+				      			<label>B</label>
+				      			<input class="form-control" name="colorFilter-b" type="range" min="0" max="255" step="1" value="0" class="slider">
+				      			<input class="form-control" name="colorFilter-b" type="number" min="0" max="255" step="1" value="0">
+				      		</div>
+				      		<div class="control">
+				      			<label>A</label>
+				      			<input class="form-control" name="colorFilter-adj" type="range" min="0" max="1" step="0.01" value="0" class="slider">
+				      			<input class="form-control" name="colorFilter-adj" type="number" min="0" max="1" step="0.01" value="0">
+				      		</div>
+			      		</span>
+			      	</div>
+			      	<div class="option">
+			      		<label id="rgbAdjust-label">Ajuste RGB<span id="rgbAdjust-icon" class="icon icon-down-open icon-text pull-right"></label>
+			      		<span id="rgbAdjust-controls" class="hidden">
+				      		<div class="control">
+				      			<label>R</label>
+				      			<input class="form-control" name="rgbAdjust-r" type="range" min="0" max="255" step="1" value="0" class="slider">
+				      			<input class="form-control" name="rgbAdjust-r" type="number" min="0" max="255" step="1" value="0">
+				      		</div>
+				      		<div class="control">
+				      			<label>G</label>
+				      			<input class="form-control" name="rgbAdjust-g" type="range" min="0" max="255" step="1" value="0" class="slider">
+				      			<input class="form-control" name="rgbAdjust-g" type="number" min="0" max="255" step="1" value="0">
+				      		</div>
+				      		<div class="control">
+				      			<label>B</label>
+				      			<input class="form-control" name="rgbAdjust-b" type="range" min="0" max="255" step="1" value="0" class="slider">
+				      			<input class="form-control" name="rgbAdjust-b" type="number" min="0" max="255" step="1" value="0">
+				      		</div>
+				      		<label><input id="rgbAdjust-apply" type="checkbox" name="rgbAdjust-apply">Aplicar ajuste</label>
+			      		</span>
+			      	</div>
+			      	<div class="option">
+			      		<label><input id="grayscale-apply" type="checkbox" name="grayscale">Escala de grises</label>
+			      	</div>
+			      	<div class="option">
+			      		<label><input id="invert-apply" type="checkbox" name="invert">Invertir</label>
+			      	</div>
+		      	</div>
+		      </div>
+		  </div>
+	  	</div>
+	  </div>
+
+	  <footer class="toolbar toolbar-footer">
+	    	<h1 id='directory' class="title"></h1>
+	  </footer>
+	</div>
+</body>
+</html>
